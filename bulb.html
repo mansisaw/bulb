@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .bulb{
+        border: 2px solid;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        margin: auto;
+    }
+    button{
+        margin-left: 45%;
+        margin-top: 20px;
+    }
+
+    .dblclick{
+        margin-right: 45%;
+        margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="bulb"></div>
+    <button>ON</button>
+    <button class="dblclick">Double click</button>
+    <script>
+        var bulb = document.querySelector('.bulb')
+        var button = document.querySelector('button')
+        var doubleClick = document.querySelector('.dblclick')
+
+        let flag=0;
+        button.addEventListener('click',()=>{
+        if(flag==0){
+        bulb.style.backgroundColor='yellow'
+        button.innerHTML='OFF'
+        flag=1;
+        }
+        else{
+            bulb.style.backgroundColor='transparent'
+            button.innerHTML='ON'
+            flag=0;
+        }
+    
+    });
+
+      
+        bulb.addEventListener('mouseover', () => {
+            if (flag == 0) {
+                bulb.style.backgroundColor = 'pink';
+                flag = 1; 
+            } else {
+                bulb.style.backgroundColor = 'transparent';  
+                flag = 0;  
+            }
+        });
+
+        doubleClick.addEventListener('dblclick',()=>{
+            if (flag == 0) {
+            console.log("Double-click detected!");
+            bulb.style.backgroundImage = "url('https://tse3.mm.bing.net/th?id=OIP.7cZ0t6NjPa7LCtb-0xrSaQHaHx&pid=Api&P=0&h=180')";
+            bulb.style.backgroundSize = "cover";
+            flag==1;
+            }else{
+                bulb.style.backgroundImage = '';
+                bulb.style.backgroundColor = 'transparent';
+                flag = 0;  
+            }
+
+        });
+
+        
+
+    
+
+
+    </script>
+</body>
+
+</html>
